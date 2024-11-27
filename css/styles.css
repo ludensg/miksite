@@ -65,12 +65,14 @@ main {
 .bio-section {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: justify;
     padding: 40px;
 }
 
 .bio-section img {
-    max-width: 300px;
+    width: 400px; /* Set a fixed width or use 100% for full width */
+    height: 300px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image covers the container without stretching */
     border-radius: 10px;
     margin-right: 40px;
 }
