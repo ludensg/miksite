@@ -2,12 +2,12 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #0D1B2A;
-    color: #FFFFFF;
+    background-color: #e7d6c2; /* Light beige */
+    color: #4d230a; /* Dark brown */
 }
 
 a {
-    color: #FFFFFF;
+    color: #4d230a; /* Matches the text color */
     text-decoration: none;
 }
 
@@ -15,9 +15,52 @@ a {
 header {
     position: fixed;
     width: 100%;
-    background-color: #1B263B;
     top: 0;
     z-index: 1000;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Transparent header (default state) */
+header.transparent {
+    background-color: transparent;
+}
+
+/* Opaque header (after scrolling past hero section) */
+header.scrolled {
+    background-color: #c78a66; /* Medium brown */
+}
+
+/* Navigation links and logo styles */
+header .logo a,
+header .menu-icon,
+header nav a {
+    color: #4d230a; /* Dark brown */
+}
+
+/* Adjust colors when header is transparent */
+header.transparent .logo a,
+header.transparent .menu-icon,
+header.transparent nav a {
+    color: #FFFFFF; /* White text for contrast over hero section */
+}
+
+/* Mobile navigation background */
+nav {
+    background-color: #c78a66; /* Medium brown */
+}
+
+/* Mobile navigation link colors */
+nav a {
+    color: #4d230a;
+}
+
+/* Adjust mobile nav background when header is transparent */
+header.transparent nav {
+    background-color: rgba(199, 138, 102, 0.9); /* Slightly transparent */
+}
+
+header.transparent nav a {
+    color: #FFFFFF; /* White text for contrast */
 }
 
 .nav-container {
@@ -29,13 +72,17 @@ header {
 
 .logo a {
     font-size: 1.5em;
-    font-weight: bold;
+    font-family: 'BebasNeue-Regular', sans-serif;
+    letter-spacing: 1.5px;
+    color: #4d230a; /* Dark brown */
+    text-decoration: none;
 }
 
 .menu-icon {
     font-size: 1.5em;
     cursor: pointer;
     display: none;
+    color: #4d230a; /* Dark brown */
 }
 
 nav {
@@ -55,7 +102,74 @@ nav li {
 
 nav a {
     font-size: 1em;
+    color: #4d230a; /* Dark brown */
+    text-decoration: none;
 }
+
+/* Hero Section Styles */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    background-image: url('../images/mikprof.png'); /* Ensure the path is correct */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4d230a; /* Dark brown */
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(77, 35, 10, 0.7); /* Dark overlay using text color */
+}
+
+.hero-content {
+    position: relative;
+    text-align: center;
+    z-index: 1;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    font-family: 'BebasNeue-Regular', sans-serif;
+    letter-spacing: 2px;
+    margin: 0;
+    color: #FFFFFF; /* White text for contrast */
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    margin-top: 20px;
+    color: #FFFFFF; /* White text for contrast */
+}
+
+/* Optional Hero Button */
+
+.hero-button {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #c78a66; /* Medium brown */
+    color: #4d230a; /* Dark brown */
+    font-size: 1em;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+    background-color: #4d230a; /* Dark brown */
+    color: #FFFFFF; /* White text */
+}
+*/
 
 /* Main Content Styles */
 main {
@@ -63,10 +177,8 @@ main {
 }
 
 .bio-section {
-    display: flex;
-    flex-direction: row;
-    align-items: justify;
-    padding: 40px;
+    padding: 60px 20px;
+    background-color: #e7d6c2; /* Light beige */
 }
 
 .bio-section img {
@@ -77,8 +189,19 @@ main {
     margin-right: 40px;
 }
 
+.bio-text {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.2em;
+    line-height: 1.6;
+    color: #4d230a; /* Dark brown */
+}
+
 .bio-text h1 {
     font-size: 2.5em;
+    font-family: 'BebasNeue-Regular', sans-serif;
+    letter-spacing: 1.5px;
+    margin-bottom: 20px;
 }
 
 .bio-text p {
@@ -87,6 +210,7 @@ main {
 }
 
 /* Responsive Styles */
+/* Mobile navigation styles */
 @media (max-width: 768px) {
     .menu-icon {
         display: block;
@@ -94,7 +218,7 @@ main {
     nav {
         display: none;
         flex-direction: column;
-        background-color: #1B263B;
+        background-color: rgba(199, 138, 102, 0.9); /* Adjusted background for transparency */
         width: 100%;
     }
     nav ul {
@@ -103,12 +227,17 @@ main {
     nav li {
         margin: 10px 0;
     }
-    .bio-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+    .hero-section {
+        height: 70vh;
+        background-attachment: scroll;
     }
-    .bio-section img {
-        margin: 0 0 20px 0;
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+    .hero-content p {
+        font-size: 1.2em;
+    }
+    .bio-section {
+        padding: 40px 20px;
     }
 }

@@ -4,13 +4,29 @@
     <meta charset="UTF-8">
     <title>Bookings and Inquiries - Your Name</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Same CSS and JS links as index.html -->
+    <link rel="stylesheet" href="css/fonts.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- Include the same header -->
-    <!-- ...copy the header code from index.html... -->
+    <!-- Navigation Bar -->
+    <header>
+        <div class="nav-container">
+            <div class="logo" style="transform-origin: left;  transform: scale(2, 1.8); padding-top: 1px;">
+                <a href="index.html" style="font-family: BebasNeue-Regular; letter-spacing: 1.5px;">Michael Gandelman</a>
+            </div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                &#9776;
+            </div>
+            <nav id="nav-links">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="recordings.html">Recordings</a></li>
+                    <li><a href="bookings.html">Bookings and Inquiries</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main>
         <section class="content-section">
